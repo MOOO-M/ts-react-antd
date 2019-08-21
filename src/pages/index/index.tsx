@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Layout, Menu, Icon } from "antd";
 
 // import './index.less';
-import styles from './index.module.css';
+import styles from './index.module.scss';
 
 const { Header, Sider, Content } = Layout;
 
