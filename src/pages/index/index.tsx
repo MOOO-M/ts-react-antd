@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 
-import { Layout, Menu, Icon } from "antd";
+import { Layout, Icon } from "antd";
+
+import Mitem from "../../components/m-item/index";
 
 // import './index.less';
-import styles from './index.module.scss';
+import styles from "./index.module.scss";
 
 const { Header, Sider, Content } = Layout;
 
@@ -17,22 +19,11 @@ const Index: React.FC = () => {
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
+        {/* LOGO */}
         <div className={styles.logo} />
 
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-          <Menu.Item key="1">
-            <Icon type="user" />
-            <span>nav 1</span>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <Icon type="video-camera" />
-            <span>nav 2</span>
-          </Menu.Item>
-          <Menu.Item key="3">
-            <Icon type="upload" />
-            <span>nav 3</span>
-          </Menu.Item>
-        </Menu>
+        {/* 侧边导航 */}
+        <Mitem theme="dark" mode="inline" />
       </Sider>
       <Layout>
         <Header style={{ background: "#fff", padding: 0 }}>
