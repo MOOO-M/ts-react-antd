@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Layout, Icon } from "antd";
 
@@ -13,10 +13,16 @@ interface propsType {
 }
 
 const Mlayout: React.FC<propsType> = (props: propsType) => {
+  const [bodyHeight, setBodyHeight] = useState(400);
   const [collapsed, setCollapsed] = useState(false);
   const [itemsBase, setItemsBase] = useState({
     theme: "light",
     mode: "inline"
+  });
+
+  useEffect(() => {
+    let screenHeight = window.innerHeight;
+    setBodyHeight(screenHeight - 182);
   });
 
   function toggle() {
@@ -45,7 +51,7 @@ const Mlayout: React.FC<propsType> = (props: propsType) => {
             padding: 0,
             position: "fixed",
             width: "100%",
-            zIndex: 99
+            zIndex: 2
           }}
         >
           <Icon
@@ -61,8 +67,9 @@ const Mlayout: React.FC<propsType> = (props: propsType) => {
             margin: "24px 16px",
             padding: 24,
             background: "#fff",
-            minHeight: "80vh",
-            marginTop: 90
+            marginTop: 90,
+            overflow: "auto",
+            height: bodyHeight
           }}
         >
           {props.children}
