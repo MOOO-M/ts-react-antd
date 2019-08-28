@@ -1,29 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.less';
+import React, { useState, useEffect } from "react";
 
-import { Button } from 'antd';
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+
+import "./App.less";
+
+import Login from "./pages/login/index";
+
+import Mlayout from "./components/m-layout/index";
+import MrouterIndex from "./components/m-router/index";
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <Button type="primary">xxxooo</Button>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  const [islogin, setIslogin] = useState(false);
+  const [isok, setIsok] = useState(false);
+
+  useEffect(() => {
+    setIslogin(true);
+    setIsok(true);
+  });
+
+  // 登录返回
+  function toLogin(isbool: boolean): void {
+    setIslogin(isbool);
+  }
+
+  if (!islogin && isok) {
+    return <Login toLogin={toLogin}></Login>;
+  } else if (islogin && isok) {
+    return (
+      <Router>
+        <Mlayout>
+          <MrouterIndex></MrouterIndex>
+        </Mlayout>
+      </Router>
+    );
+  } else {
+    return null;
+  }
+};
 
 export default App;

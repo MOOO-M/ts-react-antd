@@ -1,0 +1,25 @@
+// .ant-layout-sider {
+//   left: 0;
+//   bottom: 0;
+//   min-height: 100vh;
+//   max-height: 100vh;
+//   overflow: hidden;
+//   &:hover {
+//     overflow: auto;
+//   }
+// }
+
+.m-item {
+  //   width: 200px;
+  //   min-height: 100vh;
+  //   max-height: 100vh;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  bottom: 0;
+  transition: all 0.2s;
+  overflow: hidden;
+  &:hover {
+    overflow-y: auto;
+  }
+}
